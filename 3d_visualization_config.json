@@ -1,0 +1,32 @@
+{
+  "palm_length": 0.85,
+  "palm_width": 0.85,
+  "finger_lengths": [0.65, 0.75, 0.70, 0.55],
+  "thumb_length": 0.55,
+  "finger_width": 0.18,
+  "gesture_bends": {
+    "Fist": [85, 80, 75, 70],
+    "Open": [5, 5, 5, 5],
+    "Pinch": [10, 75, 80, 85],
+    "Point": [10, 10, 10, 80],
+    "Peace": [10, 10, 10, 10],
+    "Neutral": [20, 20, 20, 20]
+  },
+  "joint_bend_max": [90, 80, 70, 60],
+  "state_colors": {
+    "Relaxed": "#3498db",
+    "Focused": "#2ecc71",
+    "Stressed": "#e74c3c",
+    "Fatigued": "#f39c12"
+  },
+  "gesture_colors": {
+    "Fist": "#8e44ad",
+    "Open": "#95a5a6",
+    "Pinch": "#e67e22",
+    "Point": "#16a085",
+    "Peace": "#27ae60",
+    "Neutral": "#34495e"
+  },
+  "update_interval": 100,
+  "animation_fps": 15
+}
