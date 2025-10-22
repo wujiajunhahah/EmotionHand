@@ -1,0 +1,106 @@
+{
+  "_comment": "EmotionHand 专业级信号处理配置文件",
+  "_version": "1.0.0",
+
+  "emg": {
+    "sample_rate": 1000,
+    "notch_freq": 50,
+    "notch_q": 30,
+    "envelope_freq": 8,
+    "adc_bits": 12,
+    "channels": 8,
+    "bandpass_low": 20,
+    "bandpass_high": 450,
+    "comment": "EMG滤波和采样参数"
+  },
+
+  "gsr": {
+    "sample_rate": 100,
+    "tonic_cutoff": 0.5,
+    "phasic_cutoff": 0.05,
+    "scr_threshold": 0.03,
+    "comment": "GSR皮电信号处理参数"
+  },
+
+  "window": {
+    "size": 256,
+    "overlap_ratio": 0.75,
+    "step_size": 64,
+    "comment": "时间窗和步长参数 (256ms窗长，64ms步长)"
+  },
+
+  "quality": {
+    "min_snr": 6.0,
+    "max_clipping_rate": 0.01,
+    "min_quality_score": 0.7,
+    "artifact_threshold": 5.0,
+    "comment": "信号质量监测阈值"
+  },
+
+  "normalization": {
+    "method": "quantile",
+    "quantiles": [0.1, 0.9],
+    "update_adaptive": false,
+    "comment": "个体化归一化参数"
+  },
+
+  "calibration": {
+    "duration": 60,
+    "rest_phase": 30,
+    "activity_phase": 30,
+    "save_profile": true,
+    "comment": "校准过程配置 (60秒总时长)"
+  },
+
+  "realtime": {
+    "target_fps": 15,
+    "max_latency_ms": 100,
+    "buffer_size": 50,
+    "comment": "实时性能目标"
+  },
+
+  "emotional_states": {
+    "thresholds": {
+      "relaxed": {
+        "rms_max": 0.25,
+        "gsr_max": 0.25,
+        "description": "放松状态：低肌肉活动，低皮电"
+      },
+      "focused": {
+        "rms_min": 0.25,
+        "rms_max": 0.55,
+        "gsr_min": 0.25,
+        "gsr_max": 0.55,
+        "mdf_min": 0.5,
+        "description": "专注状态：中等肌肉活动，稳定皮电"
+      },
+      "stressed": {
+        "rms_min": 0.55,
+        "gsr_min": 0.55,
+        "mdf_min": 0.6,
+        "description": "紧张状态：高肌肉活动，高皮电"
+      },
+      "fatigued": {
+        "rms_declining": true,
+        "mdf_max": 0.35,
+        "duration_min": 30,
+        "gsr_not_high": true,
+        "description": "疲劳状态：肌肉活动下降，频率降低"
+      }
+    },
+    "smoothing": {
+      "alpha": 0.7,
+      "voting_window_sec": 1.0,
+      "rejection_threshold": 0.6,
+      "comment": "情绪状态平滑参数"
+    }
+  },
+
+  "logging": {
+    "level": "INFO",
+    "save_raw_data": false,
+    "save_features": true,
+    "save_quality": true,
+    "comment": "数据记录配置"
+  }
+}
