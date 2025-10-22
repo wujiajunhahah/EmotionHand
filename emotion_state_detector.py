@@ -95,7 +95,7 @@ class RuleBasedDetector:
                 'neutral': 'Neutral'
             }
             final_state = EmotionState(state_mapping.get(best_state_name, 'Neutral'))
-            confidence = smoothed_scores[best_state_name]
+            confidence = smoothed_scores.get(best_state_name, 0.5)
 
             # 拒识处理
             if confidence < self.smoothing_config['rejection_threshold']:
@@ -288,7 +288,7 @@ class RuleBasedDetector:
             'Neutral': 'neutral'
         }
         state_key = state_mapping_rev.get(state.value, 'neutral')
-        confidence = scores.get(state_key, 0.5)
+        confidence = float(scores.get(state_key, scores.get('neutral', 0.5)))
 
         reasoning_parts = []
 
