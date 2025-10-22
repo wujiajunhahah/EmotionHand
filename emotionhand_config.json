@@ -1,0 +1,40 @@
+{
+  "emg_sample_rate": 1000,
+  "gsr_sample_rate": 100,
+  "window_size": 256,
+  "overlap_ratio": 0.75,
+  "update_rate_ms": 100,
+  "history_length": 50,
+  "emotion_colors": {
+    "Relaxed": "#3498db",
+    "Focused": "#2ecc71",
+    "Stressed": "#e74c3c",
+    "Fatigued": "#f39c12"
+  },
+  "gesture_params": {
+    "Fist": {
+      "fingers": [85, 80, 75, 70],
+      "intensity": 0.9
+    },
+    "Open": {
+      "fingers": [5, 5, 5, 5],
+      "intensity": 0.2
+    },
+    "Pinch": {
+      "fingers": [10, 75, 80, 85],
+      "intensity": 0.7
+    },
+    "Point": {
+      "fingers": [10, 10, 10, 80],
+      "intensity": 0.6
+    },
+    "Peace": {
+      "fingers": [10, 10, 10, 10],
+      "intensity": 0.3
+    },
+    "Neutral": {
+      "fingers": [20, 20, 20, 20],
+      "intensity": 0.4
+    }
+  }
+}
