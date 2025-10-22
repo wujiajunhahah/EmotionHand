@@ -459,7 +459,7 @@ class RealtimeEmotionVisualizer:
         print(f"  平均处理时间: {stats['avg_time']*1000:.1f}ms")
         print(f"  最大处理时间: {stats['max_time']*1000:.1f}ms")
         print(f"  处理FPS: {stats['fps']:.1f}")
-        print(f"  延迟: {stats['latency_ms']:.1f}ms")
+        print(f"  延迟: {stats.get('latency_ms', stats['avg_time']*1000):.1f}ms")
 
 
 def main():
